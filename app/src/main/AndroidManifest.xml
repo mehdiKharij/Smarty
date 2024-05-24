@@ -40,7 +40,9 @@
             android:name=".EditProfileActivity"
             android:exported="false" />
 
-
+        <activity
+            android:name=".RoomDetailsActivity"
+            android:exported="false" />
 
     </application>
 
