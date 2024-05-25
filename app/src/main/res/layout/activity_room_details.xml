@@ -221,10 +221,11 @@
 
             <TextView
                 android:id="@+id/lightStateTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Light State"
+                android:padding="8dp"
+                android:text="Temperature"
+                android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
         </LinearLayout>
