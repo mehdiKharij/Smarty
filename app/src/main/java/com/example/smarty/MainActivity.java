@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // Centrer le titre
-        TextView toolbarTitle = findViewById(R.id.toolbar_title);
+        TextView toolbarTitle = toolbar.findViewById(R.id.toolbar_title);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ImageButton menuButton = findViewById(R.id.menu_button);
+        ImageButton menuButton = toolbar.findViewById(R.id.menu_button);
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        ImageButton notificationButton = findViewById(R.id.notification_button);
+        ImageButton notificationButton = toolbar.findViewById(R.id.notification_button);
         notificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,19 +68,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_Dashboard) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         } else if (id == R.id.nav_Devices) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DevicesFragment()).commit();
         } else if (id == R.id.nav_share) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ShareFragment()).commit();
+            shareApp(); // Appel de la méthode pour partager l'application
         } else if (id == R.id.nav_Profile) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
         } else if (id == R.id.nav_contacts) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactsFragment()).commit();
         } else if (id == R.id.nav_logout) {
-            Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
+            // Déconnexion de l'utilisateur
+            logoutUser();
         }
+
+
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void shareApp() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Hey, check out this cool app: https://play.google.com/store/apps/details?id=" + getPackageName());
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, "Share via"));
+    }
+
+    private void logoutUser() {
+        // Code pour déconnecter l'utilisateur, comme effacer les données de session
+
+        // Redirection vers l'activité de connexion
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Effacer les activités précédentes
+        startActivity(intent);
+        finish(); // Terminer cette activité
     }
 
     @Override

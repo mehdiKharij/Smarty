@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".AddContactActivity">
+
+    <!-- Champ d'édition pour le nom complet -->
+    <EditText
+        android:id="@+id/full_name_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"
+        android:inputType="text"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Champ d'édition pour la profession -->
+    <EditText
+        android:id="@+id/profession_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Profession"
+        android:inputType="text"
+        android:layout_below="@id/full_name_edit_text"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Champ d'édition pour le numéro de téléphone -->
+    <EditText
+        android:id="@+id/phone_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone"
+        android:inputType="phone"
+        android:layout_below="@id/profession_edit_text"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Bouton pour enregistrer le contact -->
+    <Button
+        android:id="@+id/save_contact_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Contact"
+        android:layout_below="@id/phone_edit_text"/>
+
+</RelativeLayout>

@@ -2,9 +2,10 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn = "navigation_view">
+    tools:showIn="navigation_view">
 
     <group
+        android:id="@+id/group_management"
         android:checkableBehavior="single">
 
         <item
@@ -27,25 +28,23 @@
             android:icon="@drawable/ic_contacts"
             android:title="Contact"/>
 
-
-
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/nav_share"
             android:title="Share"/>
 
-
     </group>
+
     <item
-        android:title="">
-
+        android:title="Management">
         <menu>
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/nav_logout"
-                android:title="Logout"/>
+            <!-- Ajoutez ici d'autres éléments du menu de gestion -->
         </menu>
-
     </item>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Log Out"
+        android:icon="@drawable/nav_logout"/>
 
 </menu>
