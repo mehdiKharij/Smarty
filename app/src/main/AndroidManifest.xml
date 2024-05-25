@@ -44,6 +44,15 @@
             android:name=".RoomDetailsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ContactsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".AddContactActivity"
+            android:exported="false" />
+
+
     </application>
 
 
