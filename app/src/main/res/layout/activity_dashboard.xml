@@ -1,20 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/flamebackk">
+    android:padding="16dp"
+    tools:context=".DashboardActivity">
 
-    <TextView
-        android:id="@+id/tvComfortLevel"
-        android:layout_width="wrap_content"
+    <!-- Temperature Box -->
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Comfort Level: "
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:padding="16dp"
-         />
+        android:layout_marginTop="100dp"
 
-</LinearLayout>
+        android:background="@drawable/rounded_box"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTemperatureLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temperature"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0°C"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:layout_below="@id/tvTemperatureLabel"/>
+
+    </RelativeLayout>
+
+    <!-- Humidity Box -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_box"
+        android:layout_marginTop="200dp"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvHumidityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humidity"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvHumidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:layout_below="@id/tvHumidityLabel"/>
+
+    </RelativeLayout>
+
+    <!-- Comfort Level Box -->
+
+    <!-- CombinedChart -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/rounded_box"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvComfortLevelLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Comfort Level"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvComfortLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvComfortLevelLabel"
+            android:text="Unknown"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/chartLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/rounded_box"
+        android:padding="16dp">
+
+        <com.github.mikephil.charting.charts.CombinedChart
+            android:id="@+id/combinedChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

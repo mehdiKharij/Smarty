@@ -1,7 +1,6 @@
 package com.example.smarty;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +18,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
     private TextView tvHumidity;
     private TextView tvLightState;
     private TextView tvTemperature;
+    private TextView tvVentilatorState; // New TextView for Ventilator State
     private DatabaseReference databaseReference;
 
     @Override
@@ -29,21 +29,24 @@ public class RoomDetailsActivity extends AppCompatActivity {
         tvHumidity = findViewById(R.id.tvHumidity);
         tvLightState = findViewById(R.id.tvLightState);
         tvTemperature = findViewById(R.id.tvTemperature);
+        tvVentilatorState = findViewById(R.id.tvVentilatorState); // Initialize the new TextView
 
-        // Initialisation de la référence de la base de données pour la chambre
+        // Initialize the database reference for the room
         databaseReference = FirebaseDatabase.getInstance().getReference().child("smart-Home").child("chambre");
 
-        // Ajout d'un ValueEventListener pour obtenir les données
+        // Add a ValueEventListener to retrieve data
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int humidity = dataSnapshot.child("humidity").getValue(Integer.class);
                 String lightState = dataSnapshot.child("lightState").getValue(String.class);
                 double temperature = dataSnapshot.child("temperature").getValue(Double.class);
+                String ventilatorState = dataSnapshot.child("ventilatorState").getValue(String.class); // Retrieve the ventilator state
 
-                tvHumidity.setText( humidity + "%");
+                tvHumidity.setText(humidity + "%");
                 tvLightState.setText("Light State: " + lightState);
                 tvTemperature.setText(temperature + "°C");
+                tvVentilatorState.setText("Fan State: " + ventilatorState); // Display the ventilator state
             }
 
             @Override
@@ -51,6 +54,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
+
         Button backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
