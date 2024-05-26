@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         notificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NotificationsActivity.class);
+                Intent intent = new Intent(MainActivity.this, NotificationsFragment.class);
                 startActivity(intent);
             }
         });
@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
         } else if (id == R.id.nav_contacts) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactsFragment()).commit();
+        } else if (id == R.id.nav_notif) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotificationsFragment()).commit();
         } else if (id == R.id.nav_logout) {
             // Déconnexion de l'utilisateur
             logoutUser();

@@ -54,7 +54,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="16dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_notif"
+                android:src="@drawable/notific"
                 android:contentDescription="Notifications"/>
 
             </RelativeLayout>

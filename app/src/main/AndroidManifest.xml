@@ -70,6 +70,13 @@
         android:name=".NotificationsActivity"
         android:exported="false" />
 
+    <activity
+        android:name=".KitchenDetailsActivity"
+        android:exported="false" />
+
+    <activity
+        android:name=".GarageDetailsActivity"
+        android:exported="false" />
 
 
 

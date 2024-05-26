@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Edit Profile"
+                android:text="Edit Contact"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:textSize="30sp"

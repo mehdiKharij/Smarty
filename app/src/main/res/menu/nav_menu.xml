@@ -29,6 +29,11 @@
             android:title="Contact"/>
 
         <item
+            android:id="@+id/nav_notif"
+            android:icon="@drawable/ic_notif"
+            android:title="Notifications"/>
+
+        <item
             android:id="@+id/nav_share"
             android:icon="@drawable/nav_share"
             android:title="Share"/>
