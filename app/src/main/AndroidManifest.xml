@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -23,40 +24,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
-        <activity android:name=".DashboardActivity"/>
-
+        <activity android:name=".DashboardActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
-        <activity android:name=".RoomDetailsActivity"
-            android:exported="false"/>
-
-        <activity
-            android:name=".RoomDetailsActivity"
-            android:exported="false" />
-
         <activity
             android:name=".ContactsActivity"
             android:exported="false" />
-
         <activity
             android:name=".AddContactActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".DevicesFragment"
+            android:exported="false" />
+        <activity android:name=".KitchenDetailsActivity" />
+        <activity android:name=".RoomDetailsActivity" />
+        <activity android:name=".GarageDetailsActivity" />
+        <activity android:name=".BathroomDetailsActivity" />
+        <activity android:name=".DevicesActivity" />
 
     </application>
-
 
 </manifest>

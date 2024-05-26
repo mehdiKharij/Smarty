@@ -1,7 +1,11 @@
 package com.example.smarty;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -37,14 +41,22 @@ public class RoomDetailsActivity extends AppCompatActivity {
                 String lightState = dataSnapshot.child("lightState").getValue(String.class);
                 double temperature = dataSnapshot.child("temperature").getValue(Double.class);
 
-                tvHumidity.setText("Humidity: " + humidity + "%");
+                tvHumidity.setText( humidity + "%");
                 tvLightState.setText("Light State: " + lightState);
-                tvTemperature.setText("Temperature: " + temperature + "°C");
+                tvTemperature.setText(temperature + "°C");
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+        Button backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RoomDetailsActivity.this, DevicesActivity.class);
+                startActivity(intent);
             }
         });
     }
