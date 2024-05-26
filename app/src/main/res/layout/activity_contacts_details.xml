@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/back_add"
-    tools:context=".AddContactActivity">
+    tools:context=".ContactsDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,13 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="230dp">
 
-            <!-- Ajoutez ici votre en-tête ou votre barre d'outils personnalisée -->
+            <!-- Ajoutez ici les vues spécifiques à l'en-tête de votre activité -->
+            <!-- Exemple: Image, Titre, etc. -->
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -30,10 +31,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Add Contact"
+                android:text="Contact"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <View
@@ -59,13 +60,19 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/ic_user" />
 
-                <EditText
-                    android:id="@+id/full_name_edit_text"
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="#CACACA" />
+
+                <TextView
+                    android:id="@+id/text_view_full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:hint="User Name"
-                    android:layout_marginLeft="15dp"
+                    android:text="Full Name"
                     android:textColor="@color/textColor"
                     android:textColorHint="@color/hintColor" />
             </LinearLayout>
@@ -86,21 +93,22 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/ic_work" />
 
-                <EditText
-                    android:id="@+id/profession_edit_text"
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="#CACACA" />
+
+                <TextView
+                    android:id="@+id/text_view_profession"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:background="@android:color/transparent"
-                    android:hint="Profession"
+                    android:text="Profession"
                     android:textColor="@color/textColor"
-                    android:textColorHint="@color/hintColor"/>
-
+                    android:textColorHint="@color/hintColor" />
             </LinearLayout>
-
-
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -118,31 +126,74 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/ic_phone" />
 
-                <EditText
-                    android:id="@+id/phone_edit_text"
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="#CACACA" />
+
+                <TextView
+                    android:id="@+id/text_view_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:background="@android:color/transparent"
-                    android:hint="Phone Number"
+                    android:text="Phone"
                     android:textColor="@color/textColor"
-                    android:textColorHint="@color/hintColor"
-                    android:inputType="phone" />
-
+                    android:textColorHint="@color/hintColor" />
             </LinearLayout>
 
 
-            <Button
-                android:id="@+id/save_contact_button"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="Save Contact"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:gravity="center">
+
+                <!-- Bouton "Update" -->
+                <Button
+                    android:id="@+id/updateButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/green"
+                    android:onClick="onUpdateClicked"
+                    android:gravity="center"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="8dp"
+                    android:text="Update"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Espacement entre les boutons -->
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="match_parent" />
+
+                <!-- Bouton "update" -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red"
+                    android:onClick="onDeleteClicked"
+                    android:gravity="center"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="8dp"
+                    android:text="Delete"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
         </LinearLayout>
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
-

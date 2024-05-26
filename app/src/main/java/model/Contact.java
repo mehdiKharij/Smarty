@@ -1,20 +1,21 @@
 package model;
+import java.io.Serializable;
 
-public class Contact {
+public class Contact implements Serializable {
     private String id; // ID unique du contact
     private String fullName; // Nom complet du contact
     private String profession; // Profession du contact
-    private String telephone; // Numéro de téléphone du contact
+    private String phone; // Numéro de téléphone du contact
 
     // Constructeur par défaut requis pour Firebase Firestore
     public Contact() {
     }
 
     // Constructeur avec nom complet, profession et numéro de téléphone
-    public Contact(String fullName, String profession, String telephone) {
+    public Contact(String fullName, String profession, String phone) {
         this.fullName = fullName;
         this.profession = profession;
-        this.telephone = telephone;
+        this.phone = phone;
     }
 
     // Getter et Setter pour l'ID
@@ -45,11 +46,13 @@ public class Contact {
     }
 
     // Getter et Setter pour le numéro de téléphone
-    public String getTelephone() {
-        return telephone;
+    // Getter et Setter pour le numéro de téléphone
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
+
 }

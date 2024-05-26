@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/back_add"
-    tools:context=".AddContactActivity">
+    tools:context=".EditProfileActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Add Contact"
+                android:text="Edit Profile"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:textSize="30sp"
@@ -60,11 +60,11 @@
                     android:background="@drawable/ic_user" />
 
                 <EditText
-                    android:id="@+id/full_name_edit_text"
+                    android:id="@+id/editTextFullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:hint="User Name"
+                    android:text="User Name"
                     android:layout_marginLeft="15dp"
                     android:textColor="@color/textColor"
                     android:textColorHint="@color/hintColor" />
@@ -87,14 +87,15 @@
                     android:background="@drawable/ic_work" />
 
                 <EditText
-                    android:id="@+id/profession_edit_text"
+                    android:id="@+id/editTextProfession"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:background="@android:color/transparent"
                     android:hint="Profession"
                     android:textColor="@color/textColor"
-                    android:textColorHint="@color/hintColor"/>
+                    android:textColorHint="@color/hintColor"
+                    android:inputType="phone" />
 
             </LinearLayout>
 
@@ -119,7 +120,7 @@
                     android:background="@drawable/ic_phone" />
 
                 <EditText
-                    android:id="@+id/phone_edit_text"
+                    android:id="@+id/editTextPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -133,14 +134,14 @@
 
 
             <Button
-                android:id="@+id/save_contact_button"
+                android:id="@+id/buttonUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="30dp"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="Save Contact"
-                android:textColor="@color/white"
-                android:textSize="14sp"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ public class MyAdapterContacts extends RecyclerView.Adapter<MyAdapterContacts.My
 
     public interface OnItemClickListener {
         void onItemClick(Contact contact);
+        void onCallClick(Contact contact);
     }
 
     public MyAdapterContacts(LinkedList<Contact> contacts, Context context, OnItemClickListener listener) {
@@ -37,7 +39,15 @@ public class MyAdapterContacts extends RecyclerView.Adapter<MyAdapterContacts.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Contact currentContact = contacts.get(position);
         holder.name.setText(currentContact.getFullName());
-        holder.phone.setText(currentContact.getTelephone());
+        holder.phone.setText(currentContact.getPhone()); // Ajoutez cette ligne pour afficher le numéro de téléphone
+
+        // Gestion du clic sur le bouton d'appel
+        holder.callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onCallClick(currentContact);
+            }
+        });
     }
 
     @Override
@@ -47,12 +57,14 @@ public class MyAdapterContacts extends RecyclerView.Adapter<MyAdapterContacts.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView name;
-        public TextView phone;
+        public TextView phone; // Ajoutez cette ligne pour le champ téléphone
+        public ImageView callButton;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.contact_name);
-            phone = itemView.findViewById(R.id.contact_phone);
+            phone = itemView.findViewById(R.id.contact_phone); // Ajoutez cette ligne pour le champ téléphone
+            callButton = itemView.findViewById(R.id.contact_call_button);
             itemView.setOnClickListener(this);
         }
 
