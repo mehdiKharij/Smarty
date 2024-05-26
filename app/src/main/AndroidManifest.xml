@@ -2,7 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <application
+    <!-- Déclaration de la permission CALL_PHONE -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+
+<application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -52,8 +58,22 @@
             android:name=".AddContactActivity"
             android:exported="false" />
 
+    <activity
+        android:name=".ContactsDetailsActivity"
+        android:exported="false" />
 
-    </application>
+    <activity
+        android:name=".UpdateContactActivity"
+        android:exported="false" />
+
+    <activity
+        android:name=".NotificationsActivity"
+        android:exported="false" />
+
+
+
+
+</application>
 
 
 </manifest>
