@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Déclaration de la permission CALL_PHONE -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
-    <uses-feature android:name="android.hardware.telephony" android:required="false" />
-
-
-<application
+    <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -29,59 +28,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
-        <activity android:name=".DashboardActivity"/>
-
+        <activity android:name=".DashboardActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
-
         <activity
             android:name=".RoomDetailsActivity"
             android:exported="false" />
-
         <activity
             android:name=".ContactsActivity"
             android:exported="false" />
-
         <activity
             android:name=".AddContactActivity"
             android:exported="false" />
-
-    <activity
-        android:name=".ContactsDetailsActivity"
-        android:exported="false" />
-
-    <activity
-        android:name=".UpdateContactActivity"
-        android:exported="false" />
-
-    <activity
-        android:name=".NotificationsActivity"
-        android:exported="false" />
-
-    <activity
-        android:name=".KitchenDetailsActivity"
-        android:exported="false" />
-
-    <activity
-        android:name=".GarageDetailsActivity"
-        android:exported="false" />
+        <activity
+            android:name=".ContactsDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
 
 
-
-</application>
-
+    </application>
 
 </manifest>

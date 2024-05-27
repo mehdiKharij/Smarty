@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rom_backk"
+    android:background="@drawable/nroomback"
     tools:context=".RoomDetailsActivity">
 
     <RelativeLayout
@@ -76,10 +76,7 @@
                             android:layout_weight="9"
                             android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:background="@drawable/ic_settings_black_24dp" />
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -105,7 +102,6 @@
                                     android:layout_width="35dp"
                                     android:layout_height="35dp"
                                     android:layout_centerInParent="true"
-                                    android:layout_centerVertical="true"
                                     android:background="@drawable/ic_science_thermometer" />
                             </RelativeLayout>
 
@@ -145,7 +141,6 @@
                                     android:layout_width="35dp"
                                     android:layout_height="35dp"
                                     android:layout_centerInParent="true"
-                                    android:layout_centerVertical="true"
                                     android:background="@drawable/ic_humidity" />
                             </RelativeLayout>
 
@@ -188,6 +183,25 @@
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:text="Light State :"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+
+                android:gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvVentilatorState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Fan State :"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
