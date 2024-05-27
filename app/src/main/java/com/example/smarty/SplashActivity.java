@@ -13,26 +13,31 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SplashActivity extends AppCompatActivity {
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-    // Durée d'attente en millisecondes
-    private static final int SPLASH_DELAY = 3000;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Utilisation d'un Handler pour retarder le lancement de LoginActivity
-        new Handler().postDelayed(new Runnable() {
+        Button getStartedButton = findViewById(R.id.get_started_button);
+
+        getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                // Création d'une intention pour démarrer LoginActivity
+            public void onClick(View v) {
+                // Rediriger vers LoginActivity
                 Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
-                // Fermeture de cette activité pour éviter qu'elle ne soit affichée lors du retour en arrière
+                // Terminer SplashActivity après la redirection
                 finish();
             }
-        }, SPLASH_DELAY);
+        });
     }
 }

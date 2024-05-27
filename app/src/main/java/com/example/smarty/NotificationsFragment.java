@@ -29,6 +29,7 @@ public class NotificationsFragment extends Fragment {
     private ImageButton deleteButton;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+    private String currentDate; // Variable pour stocker la date actuelle
 
     @Nullable
     @Override
@@ -51,6 +52,9 @@ public class NotificationsFragment extends Fragment {
 
         // Initialize Firebase Database
         databaseReference = FirebaseDatabase.getInstance().getReference("smart-Home");
+
+        // Récupérer la date actuelle une seule fois au début
+        currentDate = getCurrentDate();
 
         // Add a listener to detect changes
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -91,14 +95,42 @@ public class NotificationsFragment extends Fragment {
     }
 
     private void displayNotification(boolean flameDetected, boolean gasDetected, boolean mouvementDetecte) {
-        // Implement your notification display logic here
+        if (flameDetected) {
+            // Afficher la boîte de notification de la flamme
+            getActivity().findViewById(R.id.flameNotificationBox).setVisibility(View.VISIBLE);
+            updateNotification("Flame Detection");
+        } else {
+            // Cacher la boîte de notification de la flamme si aucune alerte de flamme n'est détectée
+            getActivity().findViewById(R.id.flameNotificationBox).setVisibility(View.GONE);
+        }
+
+        if (gasDetected) {
+            // Afficher la boîte de notification du gaz
+            getActivity().findViewById(R.id.gasNotificationBox).setVisibility(View.VISIBLE);
+            updateNotification("Gas Detection");
+        } else {
+            // Cacher la boîte de notification du gaz si aucune alerte de gaz n'est détectée
+            getActivity().findViewById(R.id.gasNotificationBox).setVisibility(View.GONE);
+        }
+
+        if (mouvementDetecte) {
+            // Afficher la boîte de notification du mouvement
+            getActivity().findViewById(R.id.movementNotificationBox).setVisibility(View.VISIBLE);
+            updateNotification("Movement Detection");
+        } else {
+            // Cacher la boîte de notification du mouvement si aucun mouvement n'est détecté
+            getActivity().findViewById(R.id.movementNotificationBox).setVisibility(View.GONE);
+        }
     }
 
-    private void updateNotification(String title, String message) {
+    // Helper method to update notification
+    private void updateNotification(String title) {
         notificationTitleTextView.setText(title);
-        notificationTextTextView.setText(message);
+        // Ne pas définir le texte de notificationDateTextView ici pour éviter de l'afficher deux fois
+        notificationTextTextView.setText(getCurrentDate()); // Utiliser getCurrentDate() pour le texte de notification
     }
 
+    // Helper method to get current date in a specific format
     private String getCurrentDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         return sdf.format(new Date());

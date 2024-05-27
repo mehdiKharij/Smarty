@@ -58,4 +58,6 @@
     <color name="textColor">#2E2E2E</color>
     <color name="hintColor">#868686</color>
     <color name="gris">#F1F1F1</color>
+    <color name="light_orange">#FDC48F</color>
+    <color name="light_sky">#B3CBEF</color>
 </resources>

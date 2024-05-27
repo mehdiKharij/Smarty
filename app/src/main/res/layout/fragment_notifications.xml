@@ -6,8 +6,7 @@
     android:background="@drawable/backf"
     tools:context=".ProfileFragment">
 
-
-<include
+    <include
         android:id="@+id/flameNotificationBox"
         layout="@layout/notification_box"
         android:layout_width="match_parent"
