@@ -86,7 +86,7 @@
                         android:layout_below="@+id/clothingImage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:text="BedRoom"
+                        android:text="Main Room"
                         android:textColor="@color/colorPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold"/>
